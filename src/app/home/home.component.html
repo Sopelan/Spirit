@@ -28,10 +28,12 @@
         </li>
       </ul>
       <li class="nav-item">
-        <a  style="color: white">Hola {{name}} </a>
+        <a  style="color: white">{{saludo}} </a>
       </li>
-        <button (click)="cerrarSession()" class="btn btn-outline-success my-2 my-sm-0" >Log Out</button>
-    </div>
+        <button (click)="register()" *ngIf="isShown" class="btn btn-outline-success my-2 my-sm-0" >Register</button>
+        <button (click)="login()" *ngIf="isShown"  class="btn btn-outline-success my-2 my-sm-0" >Login</button>
+        <button (click)="cerrarSession()" *ngIf="isShowna" class="btn btn-outline-success my-2 my-sm-0" >Log Out</button>
+      </div>
   </nav>
 
   <main role="main">

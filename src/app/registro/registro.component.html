@@ -1,1 +1,10 @@
-<p>registro works!</p>
+<div class="wrapper">
+    <h2 class="form-signin-heading" >Please register</h2>
+    <input type="text" class="form-control" name="username" placeholder="Email Address" [(ngModel)]="name" required="" autofocus="" />
+    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="password" required=""/>      
+    <label class="checkbox">
+      <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+    </label>
+    <button (click)="register();" class="btn btn-lg btn-primary btn-block" type="button">Register</button>     
+  </div>    
+      

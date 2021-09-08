@@ -8,9 +8,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  name:string = "";
-  password:string = "";
-  
+  name:any = "";
+  password:any = "";
   constructor(private router: Router)
   {
    
@@ -25,14 +24,23 @@ export class LoginComponent implements OnInit {
   login()
   {
     
-    if(this.name == "marcos" && this.password == "1234")
+    if(this.name == localStorage.getItem("registroName") && this.password == localStorage.getItem("registroPassWord"))
     {
-      localStorage.setItem("name","marcos");
-      localStorage.setItem("password","1234");
+      localStorage.setItem("name",this.name);
+      localStorage.setItem("password",this.password);
       localStorage.setItem("logueado","true");
       this.router.navigate(['./home'])
     }
     else
-      alert("Contraseña incorrecta");
+      alert("Email o Contraseña incorrecta");
+  }
+  AccesoRapido()
+  {
+    if(localStorage.getItem("registroName") && localStorage.getItem("registroPassWord"))
+    {
+      this.name = localStorage.getItem("registroName");
+      this.password = localStorage.getItem("registroPassWord");
+    }
+
   }
 } 
