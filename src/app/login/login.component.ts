@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { ServicioFirestoreService } from '../servicios/servicio-firestore.service';
+import { getAuth, setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from "firebase/auth";
 
 @Component({
   selector: 'app-login',
@@ -10,11 +13,15 @@ export class LoginComponent implements OnInit {
 
   name:any = "";
   password:any = "";
-  constructor(private router: Router)
+  
+  constructor(private router: Router,private servicios:ServicioFirestoreService,private autentificacion:AngularFireAuth)
   {
    
   }
-
+  guardarMensaje()
+  {
+    this.servicios.GuardarMensajesFireStone({nombre:"chau"});
+  }
   ngOnInit() {
     if(localStorage.getItem("logueado")=="true")
     {
@@ -23,24 +30,50 @@ export class LoginComponent implements OnInit {
   }
   login()
   {
+    var auth = getAuth();
+    setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return signInWithEmailAndPassword(auth,this.name,this.password).then(usuario=>{
+      console.log("login");
+      console.info("usuario",usuario);
+      this.router.navigate(['./home'])
+    }).catch(error=>{
+      console.info("el error es: ",error);
+    });
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+    /*this.autentificacion.signInWithEmailAndPassword(this.name,this.password).then(usuario=>{
+      console.log("login");
+      console.info("usuario",usuario);
+      this.router.navigate(['./home'])
+    }).catch(error=>{
+      console.info("el error es: ",error);
+    });*/
     
-    if(this.name == localStorage.getItem("registroName") && this.password == localStorage.getItem("registroPassWord"))
+    /*if(this.name == localStorage.getItem("registroName") && this.password == localStorage.getItem("registroPassWord"))
     {
       localStorage.setItem("name",this.name);
       localStorage.setItem("password",this.password);
       localStorage.setItem("logueado","true");
-      this.router.navigate(['./home'])
+      
     }
     else
-      alert("Email o Contraseña incorrecta");
+      alert("Email o Contraseña incorrecta");*/
+
   }
   AccesoRapido()
   {
-    if(localStorage.getItem("registroName") && localStorage.getItem("registroPassWord"))
-    {
-      this.name = localStorage.getItem("registroName");
-      this.password = localStorage.getItem("registroPassWord");
-    }
-
+    this.name = "marcossopelana@gmail.com"
+    this.password = 123456;
+    
   }
 } 

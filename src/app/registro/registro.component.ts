@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +12,7 @@ export class RegistroComponent implements OnInit {
   name:string = "";
   password:string = "";
   
-  constructor(private router: Router)
+  constructor(private router: Router ,private autentificacion: AngularFireAuth)
   {
    
   }
@@ -21,12 +22,20 @@ export class RegistroComponent implements OnInit {
   }
   register()
   {
-    localStorage.setItem("registroName",this.name);
+    /*localStorage.setItem("registroName",this.name);
     localStorage.setItem("registroPassWord",this.password);
     localStorage.setItem("name",this.name);
     localStorage.setItem("password",this.password);
     localStorage.setItem("logueado","true");
-    this.router.navigate(['./home']);
+    */
+    this.autentificacion.createUserWithEmailAndPassword(this.name,this.password).then(usuario=>{
+      console.log("register");
+      console.info("usuario",usuario);
+      this.router.navigate(['./home']);
+    }).catch(error=>{
+      console.info("el error es: ",error);
+    });
+    
   }
 
 }

@@ -8,7 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { ErrorComponent } from './pagina/error/error.component';
 import { RegistroComponent } from './registro/registro.component';
-
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,12 +19,16 @@ import { RegistroComponent } from './registro/registro.component';
     HomeComponent,
     QuienSoyComponent,
     ErrorComponent,
-    RegistroComponent
+    RegistroComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

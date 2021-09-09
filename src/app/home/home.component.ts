@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, enableProdMode, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { getAuth} from "firebase/auth";
+
 
 @Component({
   selector: 'app-home',
@@ -8,42 +11,68 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) 
+  constructor(private router: Router ,private autentificacion:AngularFireAuth) 
   { 
-    this.password = localStorage.getItem("password");
-    this.name = localStorage.getItem("name");
+    //this.password = localStorage.getItem("password");
     this.isShown = true;
     this.isShowna = false;
-    if(localStorage.getItem("logueado") == "true" &&localStorage.getItem("password") == localStorage.getItem("registroPassWord")&&localStorage.getItem("registroName")==localStorage.getItem("name"))
-    {
-      this.saludo = "hola " + this.name;
-      this.isShown = false;
-      this.isShowna = true;
-    } 
+    try {
+      this.auth = getAuth();
+     this.user = this.auth.currentUser;
+     if(this.user != null)
+      {
+        this.saludo = "hola " + this.user.email;
+        this.isShown = false;
+        this.isShowna = true;
+      
+      }
+    } catch (error) {
+      
+    }
     
   }
+  auth;
+  user;
   isShown : boolean ;
   name :any;
   password : any;
   saludo:any
   isShowna:boolean;
+  
+
+
+
   ngOnInit() {
-    this.password = localStorage.getItem("password");
-    this.name = localStorage.getItem("name");
+    //this.password = localStorage.getItem("password");
+    //this.name = localStorage.getItem("name");
     this.isShown = true;
     this.isShowna = false;
-    if(localStorage.getItem("logueado") == "true" &&localStorage.getItem("password") == localStorage.getItem("registroPassWord")&&localStorage.getItem("registroName")==localStorage.getItem("name"))
+  try {
+    this.auth = getAuth();
+   this.user = this.auth.currentUser;
+   if(this.user != null)
     {
-      this.saludo = "hola " + this.name;
+      this.saludo = "hola " + this.user.email;
       this.isShown = false;
       this.isShowna = true;
-    } 
+    
+    }
+  } catch (error) {
+    this.isShown = true;
+    this.isShowna = false;
+  }
+  
+
+    
+    
+    
   }
   cerrarSession()
   {
-    localStorage.removeItem("name");
+    /*localStorage.removeItem("name");
     localStorage.removeItem("password");
-    localStorage.removeItem("logueado");
+    localStorage.removeItem("logueado");*/
+    this.autentificacion.signOut();
     this.isShown = true;
     this.isShowna = false;
     this.saludo ="";
