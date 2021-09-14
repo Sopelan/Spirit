@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<!--nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-toggler" >Spirit</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,16 +10,16 @@
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Ahorcado</a>
+          <a class="nav-link" href="/Ahorcado">Ahorcado</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Mayor o Menor</a>
+          <a class="nav-link" href="/MayorMenor">Mayor o Menor</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Preguntados</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="/QuienSoy">Quien Soy?</a>
+          <a class="nav-link" href="/QuienSoy">Quien Soy?</a>
         </li>
         
       </ul>
@@ -30,8 +30,8 @@
         <button (click)="login()" *ngIf="isShown"  class="btn btn-outline-success my-2 my-sm-0" >Login</button>
         <button (click)="cerrarSession()" *ngIf="isShowna" class="btn btn-outline-success my-2 my-sm-0" >Log Out</button>
       </div>
-  </nav>
-
+  </nav-->
+  <app-pagina></app-pagina>
   <main role="main">
 
     <div class="jumbotron">
@@ -47,13 +47,13 @@
         <div class="col-md-4">
           <h2>Ahorcado</h2>
           <p> ahorcado (también llamado colgado) es un juego de adivinanzas de lápiz y papel para dos o más jugadores. Un jugador piensa en una palabra, frase u oración y el otro trata de adivinarla según lo que sugiere por letras o números.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="/Ahorcado" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Mayor o Menor</h2>
           <p>Juego educativo que compara dos conjuntos de objetos, y hay que determinar cuál es mayor o menor. Para ello, hay que seleccionar el operador matemático de comparación, mayor, menor o igual, para señalar el conjunto con un número de objetos más alto.
           </p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="/MayorMenor" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Preguntados</h2>

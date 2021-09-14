@@ -9,11 +9,12 @@ export class ServicioFirestoreService {
   private coleccionMensajes:AngularFirestoreCollection<any>;
   constructor(private refereciasFirebase:AngularFirestore) 
   {
-    this.coleccionMensajes = refereciasFirebase.collection<any>('mensajes');
+    this.coleccionMensajes = refereciasFirebase.collection<any>('login');
   }
-  GuardarMensajesFireStone(datos:any)
+  GuardarMensajesFireStone(nombre:string,dia:string)
   {
-    this.coleccionMensajes.add(datos);
+    let persona = {"gmail": nombre, "dia": dia};
+    this.coleccionMensajes.add(persona);
   }
 
 }

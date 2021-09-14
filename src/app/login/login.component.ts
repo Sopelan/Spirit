@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { ServicioFirestoreService } from '../servicios/servicio-firestore.service';
 import { getAuth, setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from "firebase/auth";
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -13,19 +14,14 @@ export class LoginComponent implements OnInit {
 
   name:any = "";
   password:any = "";
-  
-  constructor(private router: Router,private servicios:ServicioFirestoreService,private autentificacion:AngularFireAuth)
+
+  constructor(private router: Router,private servicio:ServicioFirestoreService,private autentificacion:AngularFireAuth)
   {
-   
-  }
-  guardarMensaje()
-  {
-    this.servicios.GuardarMensajesFireStone({nombre:"chau"});
   }
   ngOnInit() {
     if(localStorage.getItem("logueado")=="true")
     {
-      this.router.navigate(['./home'])
+      this.router.navigate(['/'])
     }
   }
   login()
@@ -39,9 +35,15 @@ export class LoginComponent implements OnInit {
     // ...
     // New sign-in will be persisted with session persistence.
     return signInWithEmailAndPassword(auth,this.name,this.password).then(usuario=>{
+      let date: Date = new Date();
+      let dia = date.toString();
+      this.servicio.GuardarMensajesFireStone(this.name,dia);
       console.log("login");
       console.info("usuario",usuario);
-      this.router.navigate(['./home'])
+      localStorage.setItem("name",this.name);
+      localStorage.setItem("password",this.password);
+      localStorage.setItem("logueado","true");
+      this.router.navigate(['./home']);
     }).catch(error=>{
       console.info("el error es: ",error);
     });
@@ -61,9 +63,6 @@ export class LoginComponent implements OnInit {
     
     /*if(this.name == localStorage.getItem("registroName") && this.password == localStorage.getItem("registroPassWord"))
     {
-      localStorage.setItem("name",this.name);
-      localStorage.setItem("password",this.password);
-      localStorage.setItem("logueado","true");
       
     }
     else

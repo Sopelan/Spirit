@@ -25,7 +25,18 @@ export class QuienSoyComponent implements OnInit {
       
       }
     } catch (error) {
-      
+      this.isShown = true;
+      this.isShowna = false;
+      this.name = localStorage.getItem("name");
+      this.password = localStorage.getItem("password");
+      this.saludo ="";
+      if(localStorage.getItem("logueado") == "true")
+      {
+        this.saludo = "hola " + this.name;
+        this.isShown = false;
+        this.isShowna = true;
+        this.autentificacion.signInWithEmailAndPassword(this.name,this.password);
+      }
     }
     
   }
@@ -56,6 +67,16 @@ export class QuienSoyComponent implements OnInit {
   } catch (error) {
     this.isShown = true;
     this.isShowna = false;
+    this.name = localStorage.getItem("name");
+    this.password = localStorage.getItem("password");
+    this.saludo ="";
+    if(localStorage.getItem("logueado") == "true")
+    {
+      this.saludo = "hola " + this.name;
+      this.isShown = false;
+      this.isShowna = true;
+      this.autentificacion.signInWithEmailAndPassword(this.name,this.password);
+    }
   }
     
     
@@ -63,14 +84,14 @@ export class QuienSoyComponent implements OnInit {
   }
   cerrarSession()
   {
-    /*localStorage.removeItem("name");
+    localStorage.removeItem("name");
     localStorage.removeItem("password");
-    localStorage.removeItem("logueado");*/
+    localStorage.removeItem("logueado");
     this.autentificacion.signOut();
     this.isShown = true;
     this.isShowna = false;
     this.saludo ="";
-    this.router.navigate(['./']);
+    this.router.navigate(['./QuienSoy']);
     
   }
   register()

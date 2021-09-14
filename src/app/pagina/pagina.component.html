@@ -1,9 +1,9 @@
-<!--nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"*ngIf="isShowni">
     <a class="navbar-toggler" >Spirit</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+  
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -30,5 +30,4 @@
         <button (click)="login()" *ngIf="isShown"  class="btn btn-outline-success my-2 my-sm-0" >Login</button>
         <button (click)="cerrarSession()" *ngIf="isShowna" class="btn btn-outline-success my-2 my-sm-0" >Log Out</button>
       </div>
-  </nav-->
-  <app-pagina></app-pagina>
+  </nav>

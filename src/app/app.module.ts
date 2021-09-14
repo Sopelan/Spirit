@@ -12,6 +12,9 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
+import { MayorMenorComponent } from './mayor-menor/mayor-menor.component';
+import { AhorcadoComponent } from './ahorcado/ahorcado.component';
+import { PaginaComponent } from './pagina/pagina.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +23,9 @@ import { environment } from '../environments/environment';
     QuienSoyComponent,
     ErrorComponent,
     RegistroComponent,
+    MayorMenorComponent,
+    AhorcadoComponent,
+    PaginaComponent,
     
   ],
   imports: [
@@ -33,4 +39,5 @@ import { environment } from '../environments/environment';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

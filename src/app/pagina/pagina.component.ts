@@ -1,30 +1,21 @@
-import { Component, enableProdMode, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { getAuth, onAuthStateChanged} from "firebase/auth";
-import { environment } from '../../environments/environment';
-
+import { getAuth } from 'firebase/auth';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-pagina',
+  templateUrl: './pagina.component.html',
+  styleUrls: ['./pagina.component.css']
 })
-export class HomeComponent implements OnInit {
+export class PaginaComponent implements OnInit {
 
-  constructor()
-  {
-
-  }
-  ngOnInit()
-  {
-
-  }
-  /*constructor(private router: Router ,private autentificacion:AngularFireAuth) 
+  constructor(private router: Router ,private autentificacion:AngularFireAuth) 
   { 
     //this.password = localStorage.getItem("password");
     this.isShown = true;
     this.isShowna = false;
+    this.isShowni = true;
     try {
       this.auth = getAuth();
      this.user = this.auth.currentUser;
@@ -51,7 +42,7 @@ export class HomeComponent implements OnInit {
   password : any;
   saludo:any
   isShowna:boolean;
-  
+  isShowni:boolean;
 
 
 
@@ -60,6 +51,7 @@ export class HomeComponent implements OnInit {
     //this.name = localStorage.getItem("name");
     this.isShown = true;
     this.isShowna = false;
+    this.isShowni = true;
   try {
     this.auth = getAuth();
     this.user = this.auth.currentUser;
@@ -111,5 +103,6 @@ export class HomeComponent implements OnInit {
   login()
   {
     this.router.navigate(["./login"]);
-  }*/
+  }
+
 }
