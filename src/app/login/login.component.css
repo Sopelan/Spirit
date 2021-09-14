@@ -1,5 +1,7 @@
 
-
+footer{
+    color: red;
+}
 body {
 	background: rgb(189, 209, 188) !important;	
 	width: auto;

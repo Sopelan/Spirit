@@ -14,9 +14,12 @@ export class LoginComponent implements OnInit {
 
   name:any = "";
   password:any = "";
-
+  loginError:boolean;
+  loginErrors :string;
   constructor(private router: Router,private servicio:ServicioFirestoreService,private autentificacion:AngularFireAuth)
   {
+    this.loginError =false;
+    this.loginErrors = "";
   }
   ngOnInit() {
     if(localStorage.getItem("logueado")=="true")
@@ -46,6 +49,23 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['./home']);
     }).catch(error=>{
       console.info("el error es: ",error);
+      console.info("el error es: ",error.code);
+        this.loginError = true;
+        switch(error.code){
+          case 'auth/wrong-password':
+          case 'auth/user-not-found':
+          case 'auth/invalid-email':
+            this.loginErrors = "Correo y/o contraseña incorrecta.";
+            break;
+  
+          case 'auth/too-many-requests':
+            this.loginErrors = "Está realizando demasiadas peticiones, espere un momento";
+            break;
+  
+          default:
+            this.loginErrors = "Algo ha salido mal, espere un momento.";
+            break;
+        }
     });
   })
   .catch((error) => {
@@ -74,5 +94,8 @@ export class LoginComponent implements OnInit {
     this.name = "marcossopelana@gmail.com"
     this.password = 123456;
     
+  }
+  resetLoginError(){
+    this.loginError = false;
   }
 } 
