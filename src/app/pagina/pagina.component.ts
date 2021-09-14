@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { getAuth } from 'firebase/auth';
@@ -43,7 +43,7 @@ export class PaginaComponent implements OnInit {
   saludo:any
   isShowna:boolean;
   isShowni:boolean;
-
+  @Input() ruta:string = "";
 
 
   ngOnInit() {
@@ -93,7 +93,7 @@ export class PaginaComponent implements OnInit {
     this.isShown = true;
     this.isShowna = false;
     this.saludo ="";
-    this.router.navigate(['./']);
+    this.router.navigate([this.ruta]);
     
   }
   register()
