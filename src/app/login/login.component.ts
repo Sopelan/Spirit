@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   password:any = "";
   loginError:boolean;
   loginErrors :string;
-  constructor(private router: Router,private servicio:ServicioFirestoreService,private autentificacion:AngularFireAuth)
+  constructor(private router: Router,private servicio:ServicioFirestoreService)
   {
     this.loginError =false;
     this.loginErrors = "";
