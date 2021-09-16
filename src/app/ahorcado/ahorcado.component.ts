@@ -49,7 +49,7 @@ export class AhorcadoComponent implements OnInit {
     }
     else
     {
-      this.acierto = "tenés que iniciar session";
+      this.acierto = "tenés que iniciar sessión";
     }
   }
   verPista()
@@ -62,7 +62,7 @@ export class AhorcadoComponent implements OnInit {
       this.cont = 0;
       this.ver = false;
       this.hueco =[];
-      this.pista = "tenés que iniciar session";
+      this.pista = "tenés que iniciar sessión";
       this.msgfinal ="";
       this.acierto = "";
     }
@@ -110,7 +110,7 @@ export class AhorcadoComponent implements OnInit {
         this.hueco =[];
         this.pista = "";
         this.msgfinal ="";
-        this.acierto = "tenés que iniciar session";
+        this.acierto = "tenés que iniciar sessión";
       }
       
     }

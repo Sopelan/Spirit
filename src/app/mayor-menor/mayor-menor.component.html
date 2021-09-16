@@ -1,1 +1,36 @@
 <app-pagina ruta="MayorMenor"></app-pagina>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="main-container">
+    <h1>EL siguiente es Mayor o Menor o igual que</h1>
+    <h3 *ngIf="ver">Puntos: {{puntos}}</h3>
+    <h3 *ngIf="ver">Vidas restantes: {{vidas}}</h3>
+    <h3>{{perdiste}}</h3>
+    <h3>{{cuantos}}</h3>
+    <table center>
+      <tr>
+        <td></td>
+        <td></td>
+        
+      </tr>
+      <tr>
+        <td [innerHTML]="img1"></td>
+        <td></td>
+        <td [innerHtml]="img2"></td>
+            <td></td>
+          </tr>
+          <br/>
+          <tr>
+            
+            <td></td>
+            <td><button *ngIf="verSiguiente" (click)="siguiente()"><img src="assets/botonSiguiente.jpg" height="100"></button></td>
+            <td><button *ngIf="verBotones"(click)="menorque()"><img src="assets\menorque.png" height="100"></button></td>
+            <td><button *ngIf="verBotones" (click)="igualque()"><img src="assets\igualque.png" height="100"></button></td>
+            <td></td>
+            <td><button *ngIf="verBotones" (click)="mayorque()"><img src="assets\mayorque.png" height="100"></button></td>
+            <td><button *ngIf="verStart"(click)="comenzar()"><img src="assets\start.jpg" height="100"></button></td>
+          </tr>
+    </table>
+</div>
