@@ -26,6 +26,18 @@ export class PaginaComponent implements OnInit {
         this.isShowna = true;
       
       }
+      else
+      {
+        if(localStorage.getItem("logueado") == "true")
+        {
+          this.name = localStorage.getItem("name");
+          this.password = localStorage.getItem("password");
+          this.saludo = "hola " + this.name;
+          this.isShown = false;
+          this.isShowna = true;
+          this.autentificacion.signInWithEmailAndPassword(this.name,this.password);
+        }
+      }
     } catch (error) {
       this.name = localStorage.getItem("name");
       this.password = localStorage.getItem("password");
@@ -62,6 +74,17 @@ export class PaginaComponent implements OnInit {
       this.isShowna = true;
       //this.saludo = "hola " + this.name;
     
+    }else
+    {
+      if(localStorage.getItem("logueado") == "true")
+      {
+        this.name = localStorage.getItem("name");
+        this.password = localStorage.getItem("password");
+        this.saludo = "hola " + this.name;
+        this.isShown = false;
+        this.isShowna = true;
+        this.autentificacion.signInWithEmailAndPassword(this.name,this.password);
+      }
     }
   } catch (error) {
     this.isShown = true;

@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { MayorMenorComponent } from './mayor-menor/mayor-menor.component';
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 import { PaginaComponent } from './pagina/pagina.component';
+import { ChatComponent } from './chat/chat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { PaginaComponent } from './pagina/pagina.component';
     MayorMenorComponent,
     AhorcadoComponent,
     PaginaComponent,
+    ChatComponent,
     
   ],
   imports: [

@@ -1,0 +1,33 @@
+.container {
+    max-width: 750px;
+}
+ 
+.btn {
+    background-color: rgb(11, 165, 192);
+    color: #fff;
+}
+ 
+.btn:hover,
+.btn:active {
+    background-color: rgb(15, 132, 153);
+    color: #fff;
+    transition: all 0.2s;
+}
+ 
+.btn:focus {
+    box-shadow: none;
+}
+#inferior{
+    color: #FFF;
+    background: #000;
+    position:absolute; /*El div será ubicado con relación a la pantalla*/
+    left:0px; /*A la derecha deje un espacio de 0px*/
+    right:0px; /*A la izquierda deje un espacio de 0px*/
+    height:50px; /*alto del div*/
+    z-index:0;
+}
+div{
+    margin-left: 30px;  
+    margin-right: 30px;
+    position: relative;
+}
