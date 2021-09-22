@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MayorMenorComponent } from './mayor-menor/mayor-menor.component';
 import { ErrorComponent } from './pagina/error/error.component';
+import { PreguntadosComponent } from './preguntados/preguntados.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { RegistroComponent } from './registro/registro.component';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'MayorMenor', component:MayorMenorComponent},
   {path: 'Ahorcado',component:AhorcadoComponent},
   {path: 'chat',component:ChatComponent},
+  {path: 'preguntados',component:PreguntadosComponent},
   {path: '**',component: ErrorComponent}
 
 ];

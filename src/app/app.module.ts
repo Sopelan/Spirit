@@ -16,6 +16,7 @@ import { MayorMenorComponent } from './mayor-menor/mayor-menor.component';
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 import { PaginaComponent } from './pagina/pagina.component';
 import { ChatComponent } from './chat/chat.component';
+import { PreguntadosComponent } from './preguntados/preguntados.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { ChatComponent } from './chat/chat.component';
     AhorcadoComponent,
     PaginaComponent,
     ChatComponent,
+    PreguntadosComponent,
     
   ],
   imports: [

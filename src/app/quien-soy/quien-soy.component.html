@@ -1,34 +1,37 @@
-<!--nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-toggler" >Spirit</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/Ahorcado">Ahorcado</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/MayorMenor">Mayor o Menor</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Preguntados</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="/QuienSoy">Quien Soy?</a>
-        </li>
-        
-      </ul>
-      <li class="nav-item">
-        <a  style="color: white">{{saludo}} </a>
-      </li>
-        <button (click)="register()" *ngIf="isShown" class="btn btn-outline-success my-2 my-sm-0" >Register</button>
-        <button (click)="login()" *ngIf="isShown"  class="btn btn-outline-success my-2 my-sm-0" >Login</button>
-        <button (click)="cerrarSession()" *ngIf="isShowna" class="btn btn-outline-success my-2 my-sm-0" >Log Out</button>
-      </div>
-  </nav-->
   <app-pagina ruta="/QuienSoy"></app-pagina>
+  <br/>
+  <br/>
+  <br/>
+  <div class="row">
+    <div class="col-md-3 jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-2">QuienSoy?</h1>
+        <img src="assets/yo.jpg" alt="300px">
+        <p>Hola soy Marcos Sopelana Soy un programador de la facultad utnFra. Esto es una sala de juego</p>
+      </div>
+    </div>
+  <div class="col jumbotron">
+    <div class="container">
+      <h1 class="display-3">Reglas del Jodete</h1>
+      <p>--aca las reglas del Jodete--</p>
+      <p> El jodete es un juego de cartas, en el cual hay qe estar atento al juego. El objetivo del juego es qedarse sin cartas.Las cartas se tiran si se tiene una del mismo palo o el mismo numero .Si un jugador agarra o tira una carta cuando no es su turno se le da 2 cartas. Si un jugador cuando tiene su ultima carta no dice ultima carta y otro jugador se dio cuenta qe no lo dijo dice jodete y se le dan dos cartas.
+          Depende la cantidad de personas qe juegen es la cantidad de cartas qe se reparten por ej:<br/>
+
+          2 personas : 7 o 6 cartas<br/>
+          3 personas : 6 o 5 cartas<br/>
+          4 personas : 4 o 5 cartas<br/>
+          5 personas : 4 cartas<br/>
+          6 personas : 4 cartas<br/>
+
+          Al jodete se juega con un maso de 40 cartas. Hay cartas especiales como :<br/>
+
+          el 4 : qe saltea a la persona qe seguia<br/>
+          el 12 : cambia el sentido de la ronda<br/>
+          el 7 : repite ; por ej: si tiramos un 7 de espada habria qe tirar o otro 7 o una carta de espada.<br/>
+          el 10: se elige el palo qe se qiere; se puede tirar en cualqier momento; no tiene nada qe ver si no es del mismo palo.<br/>
+          el 2 : cuando se tira a la persona qe sige se le dan dos cartas, exepto qe tire otro 2 y seria a la persona qe le sigese le da 4<br/>
+        </p>
+    </div>
+  </div>
+</div> 

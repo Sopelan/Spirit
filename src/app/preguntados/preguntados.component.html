@@ -1,0 +1,31 @@
+<app-pagina ruta="/preguntados"></app-pagina>
+<br/>
+<br/>
+<br/>
+<div *ngIf="Cualver" class="container col-8" >
+    <div class="row  text-center" >
+      <div class="card mt-5">
+        <div><h3><b>{{preguntaActual.categoria}}</b></h3></div>
+        <div><h1>{{preguntaActual.pregunta}}</h1></div>
+        <div class="mt-1 mb-3" *ngFor="let opcion of preguntaActual.opciones">
+          <button style="border-color: red; background-color: rgb(231, 170, 170);" [disabled]="seguirRespondiendo"  color="primary" (click)="checkearRespuesta(preguntaActual,opcion)">{{opcion}}</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row text-center mt-5" *ngIf="ver">
+      <div>
+        <h1 class="text-success display-3" *ngIf="adivino == true">Correcto!</h1>
+        <h1 class="text-warning display-3" *ngIf="adivino == false">Incorrecto!</h1>
+      </div>
+  
+      <div class="mt-5" *ngIf="seguirRespondiendo">
+        <button color="primary" (click)="getPreguntaAleatoria()">Siguiente Pregunta</button>
+      </div>
+    </div>
+  
+  </div>
+    <div class="row text-center mt-0" *ngIf="!Cualver">
+      <h1 class="text-primary"><b>FIN DEL JUEGO</b></h1>
+      <h3>¡Acertaste {{respuestasCorrectas}} de {{preguntas.length}} respuestas!</h3>
+    </div>
