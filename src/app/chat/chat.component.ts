@@ -25,63 +25,6 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.segundo = 0;
     this.RecuperarMensajesChat();
-    /*setInterval(() => {
-      if(localStorage.getItem("logueado")== "true")
-      {
-        try{
-
-          this.RecuperarMensajesChat();
-          this.mensajes = "";
-          this.segundo++;
-          this.chats.sort(function(a, b){return Date.parse(a.dia) - Date.parse(b.dia)})
-          for(let i = this.chats.length-10;i<this.chats.length;i++)
-          {
-            if(localStorage.getItem("name") == this.chats[i].nombre)
-            {
-                this.mensajes+='<div>'+
-                '<div  align="right">'+
-                '<p>ME</p>'+
-                  '<div class="bg-light rounded py-2 px-3 mb-2" >'+
-                    '<p class="text-small mb-0 text-muted">'+this.chats[i].mensaje+'</p>'+
-                 ' </div>'+
-                  '<p class="small text-muted">'+this.chats[i].dia+'<p/>'+
-                '</div>'
-             '</div>';
-            }
-            else
-            {
-              this.mensajes += '<div'+
-              '<div >'+
-                '<p>'+this.chats[i].nombre+'</p>'+
-                '<div '+
-                  '<div class="bg-primary rounded py-2 px-3 mb-2">'+
-                    '<p class="text-small mb-0 text-white" >'+this.chats[i].mensaje+'</p>'+
-                  '</div>'+
-                  '<p class="small text-muted" >'+this.chats[i].dia+'<p/>'+
-                '</div>'+
-              '</div>';
-            }
-          }
-        this.chats = [];
-        }
-        
-        catch(error)
-        {
-          console.log(error);
-          
-        }
-      }
-      else
-      {
-        this.mensajes ="<h3>necesitas iniciar session<h3/>";
-      } 
-       
-      
-      
-        
-      
-      
-    }, 2000);*/
     
   }
   GuardarMensajesChat()
@@ -106,7 +49,7 @@ export class ChatComponent implements OnInit {
        let chat:Mensajes = new Mensajes(doc.data().dia,doc.data().gmail,doc.data().mensaje);
        this.chats.push(chat);
      });*/
-     let ar = this.refereciasFirebase.collection('chat').valueChanges();
+     let ar = this.coleccionMensajesChat.valueChanges()
      ar.subscribe(datosRetornado=>{
       console.info("dato retornados",datosRetornado);
       this.chats = datosRetornado;
