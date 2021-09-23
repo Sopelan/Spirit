@@ -61,7 +61,7 @@ export class ChatComponent implements OnInit {
           this.mensajes = "";
           this.segundo++;
           this.chats.sort(function(a:any, b:any){return Date.parse(a.dia) - Date.parse(b.dia)})
-          for(let i = this.chats.length-10;i<this.chats.length;i++)
+          for(let i = 0;i<this.chats.length;i++)
           {
             if(localStorage.getItem("name") == this.chats[i].gmail)
             {
