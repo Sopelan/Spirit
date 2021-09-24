@@ -22,7 +22,6 @@ const routes: Routes = [
   {path: 'preguntados',component:PreguntadosComponent},
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
   { path: 'registro', loadChildren: () => import('./registro/registro.module').then(m => m.RegistroModule) },
-  { path: 'pagina', loadChildren: () => import('./module/pagina/pagina.module').then(m => m.PaginaModule) },
   {path: '**',component: ErrorComponent}
 
 ];
