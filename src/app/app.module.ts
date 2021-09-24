@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+//import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { ErrorComponent } from './pagina/error/error.component';
-import { RegistroComponent } from './registro/registro.component';
+//import { RegistroComponent } from './registro/registro.component';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -20,11 +20,11 @@ import { PreguntadosComponent } from './preguntados/preguntados.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    //LoginComponent,
     HomeComponent,
     QuienSoyComponent,
     ErrorComponent,
-    RegistroComponent,
+    //RegistroComponent,
     MayorMenorComponent,
     AhorcadoComponent,
     PaginaComponent,

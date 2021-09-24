@@ -2,6 +2,12 @@
     <h2 class="form-signin-heading" >Please register</h2>
     <input type="text" class="form-control" name="username" placeholder="Email Address" [(ngModel)]="name" required="" autofocus="" />
     <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="password" required=""/>      
-    <button (click)="register();" class="btn btn-lg btn-primary btn-block" type="button">Register</button>     
+    <button (click)="register();" class="btn btn-lg btn-primary btn-block" type="button">Register</button>
+    <footer *ngIf="RegistroError">
+      <div class="alert alert-danger" role="alert">
+        {{RegistroErrors}}
+        <button (click)="resetRegistroError()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </footer>   
   </div>    
       

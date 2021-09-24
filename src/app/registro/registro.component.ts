@@ -11,10 +11,12 @@ export class RegistroComponent implements OnInit {
 
   name:string = "";
   password:string = "";
-  
+  RegistroError : boolean;
+  RegistroErrors = "";
   constructor(private router: Router ,private autentificacion: AngularFireAuth ,private servicio : ServicioFirestoreService)
   {
-   
+    this.RegistroError = false
+
   }
 
   ngOnInit() {
@@ -43,8 +45,33 @@ export class RegistroComponent implements OnInit {
       this.router.navigate(['./home']);
     }).catch(error=>{
       console.info("el error es: ",error);
+      console.info("el error es: ",error.code);
+        this.RegistroError = true;
+        switch(error.code){
+          case 'auth/email-already-in-use':
+            this.RegistroErrors = "Ese correo ya es usado. Elija otro";
+            break;
+          case 'auth/weak-password':
+            this.RegistroErrors = "Contraseña: Tiene que tener mas de 6 caracteres";
+            break;
+          case 'auth/invalid-email':
+            this.RegistroErrors = "Correo incorrecto";
+            break;
+  
+          case 'auth/too-many-requests':
+            this.RegistroErrors = "Está realizando demasiadas peticiones, espere un momento";
+            break;
+  
+          default:
+            this.RegistroErrors = "Algo ha salido mal, espere un momento.";
+            break;
+        }
     });
     
+    
+  }
+  resetRegistroError(){
+    this.RegistroError = false;
   }
 
 }
