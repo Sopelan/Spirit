@@ -14,22 +14,22 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { MayorMenorComponent } from './mayor-menor/mayor-menor.component';
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
-import { PaginaComponent } from './pagina/pagina.component';
+//import { PaginaComponent } from './pagina/pagina.component';
 import { ChatComponent } from './chat/chat.component';
 import { PreguntadosComponent } from './preguntados/preguntados.component';
 @NgModule({
   declarations: [
     AppComponent,
     //LoginComponent,
-    HomeComponent,
+    /*HomeComponent,
     QuienSoyComponent,
     ErrorComponent,
     //RegistroComponent,
     MayorMenorComponent,
     AhorcadoComponent,
-    PaginaComponent,
+    //PaginaComponent,
     ChatComponent,
-    PreguntadosComponent,
+    PreguntadosComponent,*/
     
   ],
   imports: [

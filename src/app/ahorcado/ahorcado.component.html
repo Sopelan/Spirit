@@ -1,22 +1,18 @@
 <app-pagina ruta="/Ahorcado"></app-pagina>
 <br/>
 <br/>
+<br/>
+<br/>
+<br/>
+
 <div class="main-container">
 
     <h1 class="titulo">Juego del Ahorcado</h1>
-    <h1 [innerHTML]="msgfinal"></h1>
-    <h3 [innerHTML]="acierto"></h3>
     <div class="flex-row no-wrap">
+      <h1 [innerHTML]="msgfinal"></h1>
+      <h3 [innerHTML]="acierto"></h3>
       <h2 class="palabra" id="palabra"></h2>
-      <!--picture>
-        <img src="img/ahorcado_6.png" alt="" id="image6">
-        <img src="img/ahorcado_5.png" alt="" id="image5">
-        <img src="img/ahorcado_4.png" alt="" id="image4">
-        <img src="img/ahorcado_3.png" alt="" id="image3">
-        <img src="img/ahorcado_2.png" alt="" id="image2">
-        <img src="img/ahorcado_1.png" alt="" id="image1">
-        <img src="img/ahorcado_0.png" alt="" id="image0">
-      </picture-->
+      <picture [innerHtml]="innerHtml"></picture>
     </div>
     <div class="flex-row" id="turnos">
       <div class="col">

@@ -21,6 +21,16 @@ export class AhorcadoComponent implements OnInit {
   reset:string = "Iniciar";
   verPisto:boolean = false;
   verIniciar:boolean = true;
+  innerHtml:string = "";
+  imagenes : string[] = [
+    '<img src="assets/img/ahorcado_0.png" height="300px">',
+  '<img src="assets/img/ahorcado_1.png" height="300px">',
+  '<img src="assets/img/ahorcado_2.png" height="300px">',
+  '<img src="assets/img/ahorcado_3.png" height="300px">',
+  '<img src="assets/img/ahorcado_4.png" height="300px">',
+  '<img src="assets/img/ahorcado_5.png" height="300px">',
+  '<img src="assets/img/ahorcado_6.png" height="300px">',
+  ]
   constructor() 
   { 
     this.cont=0;
@@ -46,6 +56,8 @@ export class AhorcadoComponent implements OnInit {
       this.verPisto = true;
       this.verIniciar= false;
       this.acierto = "";
+      this.innerHtml=this.imagenes[this.cont];
+      this.pista = "";
     }
     else
     {
@@ -89,6 +101,7 @@ export class AhorcadoComponent implements OnInit {
         //document.getElementById("acierto").className += "acierto verde";
       }else{
         this.cont--;
+        this.innerHtml = this.imagenes[this.cont];
         //document.getElementById("intentos").innerHTML = cont;
         this.acierto = "Fallo!";
         //document.getElementById("acierto").className += "acierto rojo";
