@@ -10,12 +10,12 @@ import { PaginaComponent } from './pagina.component';
 
 const routes: Routes = [
   {path: 'home',component: HomeComponent},
-  {path: '',redirectTo: '/home',pathMatch: "full"},
   {path: 'QuienSoy',component:QuienSoyComponent},
   {path: 'MayorMenor', component:MayorMenorComponent},
   {path: 'Ahorcado',component:AhorcadoComponent},
   {path: 'chat',component:ChatComponent},
   {path: 'preguntados',component:PreguntadosComponent},
+  {path: '',redirectTo: '/home',pathMatch: "full"},
 ];
 
 @NgModule({
