@@ -17,6 +17,7 @@ import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 //import { PaginaComponent } from './pagina/pagina.component';
 import { ChatComponent } from './chat/chat.component';
 import { PreguntadosComponent } from './preguntados/preguntados.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { PreguntadosComponent } from './preguntados/preguntados.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

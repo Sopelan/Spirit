@@ -5,7 +5,7 @@ export class Preguntas {
     public opciones : string[];
     public respuesta : string;
     public categoria : string;
-
+    public imagen : string = "";
     constructor(pregunta:string,respuesta:string,opciones:string[],categoria:string)
     {
         this.pregunta = pregunta;

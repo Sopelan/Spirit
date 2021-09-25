@@ -61,7 +61,13 @@ export class LoginComponent implements OnInit {
           case 'auth/too-many-requests':
             this.loginErrors = "Está realizando demasiadas peticiones, espere un momento";
             break;
-  
+          
+          case 'auth/quota-exceeded':
+            localStorage.setItem("name",this.name);
+            localStorage.setItem("password",this.password);
+            localStorage.setItem("logueado","true");
+            this.router.navigate(['./home']);
+            break;
           default:
             this.loginErrors = "Algo ha salido mal, espere un momento.";
             break;
