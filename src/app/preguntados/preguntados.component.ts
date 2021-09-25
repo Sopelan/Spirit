@@ -27,7 +27,7 @@ export class PreguntadosComponent implements OnInit {
   constructor(private serviciosFirestoreService : ServicioFirestoreService) 
   {
     this.respuestasCorrectas = 0;
-    this.contador = 0;
+    this.contador = -1;
     this.opcion = "";
     this.seguirRespondiendo = false;
     this.adivino = false;
@@ -72,17 +72,22 @@ export class PreguntadosComponent implements OnInit {
   { 
     if(localStorage["logueado"] == "true")
     {
-      this.preguntaActual = this.preguntas[this.contador];
-      console.log(this.contador);
-      if(this.preguntaActual.imagen != "")
-        this.html = '<img src="'+this.preguntaActual.imagen+'" height="300">';
-      this.seguirRespondiendo = false;
-      this.ver = false
       this.contador ++;
       if(this.contador == this.preguntas.length)
       {
         this.verfor = false
         this.Cualver = false
+        this.html = "";
+      }
+      else
+      {
+        this.preguntaActual = this.preguntas[this.contador];
+       // console.log(this.contador);
+        //console.log(this.preguntaActual);
+        if(this.preguntaActual.imagen != "")
+          this.html = '<img  src="'+this.preguntaActual.imagen+'" height="300">';
+        this.seguirRespondiendo = false;
+        this.ver = false
       }
     }
     else

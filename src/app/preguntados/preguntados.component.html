@@ -8,7 +8,7 @@
       <div class="card mt-5">
         <div><h3><b>{{preguntaActual.categoria}}</b></h3></div>
         <div><h1>{{preguntaActual.pregunta}}</h1></div>
-        <div [innerHtml]="html"></div>
+        <div style="border-style: solid;" [innerHtml]="html"></div>
         <div class="mt-1 mb-3"  *ngFor="let opcion of preguntaActual.opciones">
           <button style="border-color: red; background-color: rgb(231, 170, 170);" [disabled]="seguirRespondiendo"  color="primary" (click)="checkearRespuesta(preguntaActual,opcion)">{{opcion}}</button>
         </div>
