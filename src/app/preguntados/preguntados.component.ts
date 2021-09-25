@@ -87,7 +87,7 @@ export class PreguntadosComponent implements OnInit {
     }
     else
     {
-      this.errores = "Tiene que iniciar session!!";
+      this.errores = "Tenés que iniciar session!!";
     }
 
   }
@@ -104,7 +104,7 @@ export class PreguntadosComponent implements OnInit {
     }
     else
     {
-      this.errores = "Tiene que iniciar session!!";
+      this.errores = "Tenés que iniciar session!!";
     }
     
   }
@@ -147,7 +147,7 @@ export class PreguntadosComponent implements OnInit {
     }
     else
     {
-      this.errores = "Tiene que iniciar session!!";
+      this.errores = "Tenés que iniciar session!!";
     }
   }
 }

@@ -48,6 +48,7 @@ export class MayorMenorComponent implements OnInit {
   ver : boolean = false;
   perdiste : string = "";
   cuantos : string = "";
+  errores : string = "";
   constructor() { }
 
   ngOnInit(): void {
@@ -77,7 +78,8 @@ export class MayorMenorComponent implements OnInit {
     }
     else
     {
-      this.perdiste="Tenés que iniciar sessión";
+      this.errores ="Tenés que iniciar sessión!!";
+      this.perdiste="";
     }
   } 
   menorque()
@@ -110,7 +112,8 @@ export class MayorMenorComponent implements OnInit {
     }
     else
     {
-      this.perdiste="Tenés que iniciar sessión";
+      this.perdiste = "";
+      this.errores="Tenés que iniciar sessión!!";
     }
   }
   igualque()
@@ -143,9 +146,10 @@ export class MayorMenorComponent implements OnInit {
     }
     else
     {
-      this.perdiste="Tenés que iniciar sessión";
+      this.errores ="Tenés que iniciar sessión!!";
+      this.perdiste="";    
     }
-    }
+  }
     mayorque()
     {
       if(localStorage.getItem("logueado") == "true")
@@ -176,7 +180,8 @@ export class MayorMenorComponent implements OnInit {
       }
       else
       {
-        this.perdiste="Tenés que iniciar sessión";
+        this.errores ="Tenés que iniciar sessión!!";
+        this.perdiste="";
       }
 
   }
@@ -197,7 +202,8 @@ export class MayorMenorComponent implements OnInit {
     }
     else
     {
-      this.perdiste="Tenés que iniciar sessión";
+      this.errores ="Tenés que iniciar sessión!!";
+      this.perdiste="";
     }
   }
   

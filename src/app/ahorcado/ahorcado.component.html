@@ -25,7 +25,7 @@
         <button (click)="verPista()" *ngIf="verPisto" id="pista">Dame una pista!</button>
       </div>
       </div>
-    
+      <h1 class="text-danger display-3">{{errores}}</h1>
     <div class="flex-row" *ngIf="ver">
       <div class="col" *ngFor="let letra of letras" >
           <button (click)="intento(letra,$event)" >{{letra}}</button>

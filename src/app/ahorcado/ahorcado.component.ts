@@ -22,6 +22,7 @@ export class AhorcadoComponent implements OnInit {
   verPisto:boolean = false;
   verIniciar:boolean = true;
   innerHtml:string = "";
+  errores:string ="";
   imagenes : string[] = [
     '<img src="assets/img/ahorcado_0.png" height="300px">',
   '<img src="assets/img/ahorcado_1.png" height="300px">',
@@ -58,10 +59,12 @@ export class AhorcadoComponent implements OnInit {
       this.acierto = "";
       this.innerHtml=this.imagenes[this.cont];
       this.pista = "";
+      this.errores = ""
     }
     else
     {
-      this.acierto = "tenés que iniciar sessión";
+      this.acierto = "";
+      this.errores = "tenés que iniciar sessión!!";
     }
   }
   verPista()
@@ -74,7 +77,8 @@ export class AhorcadoComponent implements OnInit {
       this.cont = 0;
       this.ver = false;
       this.hueco =[];
-      this.pista = "tenés que iniciar sessión";
+      this.pista = "";
+      this.errores = "tenés que iniciar sessión!!";
       this.msgfinal ="";
       this.acierto = "";
     }
@@ -123,7 +127,8 @@ export class AhorcadoComponent implements OnInit {
         this.hueco =[];
         this.pista = "";
         this.msgfinal ="";
-        this.acierto = "tenés que iniciar sessión";
+        this.acierto = "";
+        this.errores = "tenés que iniciar sessión!!";
       }
       
     }

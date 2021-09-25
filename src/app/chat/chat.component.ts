@@ -37,7 +37,7 @@ export class ChatComponent implements OnInit {
     }
     else
     {
-      this.mensajes ="<h3>necesitas iniciar session<h3/>";
+      this.mensajes ='<h1 class="text-danger display-3">tenés que iniciar sessión!!</h1>';
     }
   }
   async RecuperarMensajesChat()
@@ -100,7 +100,7 @@ export class ChatComponent implements OnInit {
       }
       else
       {
-        this.mensajes ="<h3>necesitas iniciar session<h3/>";
+        this.mensajes ='<h1 class="text-danger display-3">tenés que iniciar sessión!!</h1>';
       } 
     })
      console.log("estoy leyendo");
