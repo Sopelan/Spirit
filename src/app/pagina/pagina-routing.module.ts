@@ -5,6 +5,7 @@ import { ChatComponent } from '../chat/chat.component';
 import { HomeComponent } from '../home/home.component';
 import { MayorMenorComponent } from '../mayor-menor/mayor-menor.component';
 import { PreguntadosComponent } from '../preguntados/preguntados.component';
+import { QuienEsQuienComponent } from '../quien-es-quien/quien-es-quien.component';
 import { QuienSoyComponent } from '../quien-soy/quien-soy.component';
 import { PaginaComponent } from './pagina.component';
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'Ahorcado',component:AhorcadoComponent},
   {path: 'chat',component:ChatComponent},
   {path: 'preguntados',component:PreguntadosComponent},
+  {path: 'quienEsQuien',component:QuienEsQuienComponent},
   {path: '',redirectTo: '/home',pathMatch: "full"},
 ];
 

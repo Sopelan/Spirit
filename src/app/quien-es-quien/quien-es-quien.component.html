@@ -1,0 +1,52 @@
+<app-pagina ruta="quienEsQuien"></app-pagina>
+<br/>
+<br/>
+<br/>
+<div class="card mt-5" *ngIf="verComenzar">
+    <button class="btn-lg" (click)="Empezar();">comenzar</button>
+</div>
+<h1 *ngIf="esto" [innerHtml]="ver"></h1>
+<div [innerHtml]="alertas"></div>
+<div *ngIf="esto" class="grid" > <!-- contenedor -->
+    <div *ngFor="let item of personajes"><img src="{{item.imagen}}" (click)="ImagenClick(item);" height="200px"></div> <!-- cada uno de los ítems del grid -->
+</div>
+<br/>
+<div *ngIf="esto">
+    <div>
+        <h3>Genero:</h3>
+        <button (click)="boton('Femenino','Genero')" class="btn-lg">Es Femenino? </button>&nbsp;&nbsp;
+        <button (click)="boton('Masculino','Genero')" class="btn-lg" >Es Masculino?</button>&nbsp;&nbsp;
+    </div>
+    <br/>
+    <div>
+        <h3>Color Ojos:</h3>
+        <button (click)="boton('Azul','colorOjos')" class="btn-lg">Es Azul? </button>&nbsp;&nbsp;
+        <button (click)="boton('Marron','colorOjos')" class="btn-lg" >Es Marron?</button>&nbsp;&nbsp;
+        <button (click)="boton('Negro','colorOjos')" class="btn-lg" >Es Negro?</button>&nbsp;&nbsp;
+        <button (click)="boton('Gris','colorOjos')" class="btn-lg" >Es Gris?</button>&nbsp;&nbsp;
+        <button (click)="boton('Morado','colorOjos')" class="btn-lg" >Es Morado?</button>&nbsp;&nbsp;
+        <button (click)="boton('Rojo','colorOjos')" class="btn-lg" >Es Rojo?</button>&nbsp;&nbsp;
+    </div>
+    <br/>
+    <div>
+        <h3>Color Pelo:</h3>
+        <button (click)="boton('Rosa','colorPelo')" class="btn-lg">Es Rosa? </button>&nbsp;&nbsp;
+        <button (click)="boton('Blanco','colorPelo')" class="btn-lg" >Es Blanco?</button>&nbsp;&nbsp;
+        <button (click)="boton('Negro','colorPelo')" class="btn-lg" >Es Negro?</button>&nbsp;&nbsp;
+        <button (click)="boton('Marron','colorPelo')" class="btn-lg" >Es Marron?</button>&nbsp;&nbsp;
+        <button (click)="boton('Morado','colorPelo')" class="btn-lg" >Es Morado?</button>&nbsp;&nbsp;
+    </div>
+    <br/>
+    <div>
+        <h3>Color Pelo:</h3>
+        <button (click)="boton('Go Toubun no Hanayome','anime')" class="btn-lg">Es de Go Toubun no Hanayome? </button>&nbsp;&nbsp;
+        <button (click)="boton('Tokyo ghoul','anime')" class="btn-lg" >Es de Tokyo ghoul?</button>&nbsp;&nbsp;
+        <button (click)="boton('Yahari ore no seishun love Come wa Machigatteiru','anime')" class="btn-lg" >Es de Oreigaru?</button>&nbsp;&nbsp;
+        <button (click)="boton('Kanojo mo Kanojo','anime')" class="btn-lg" >Es de Kanojo mo Kanojo?</button>&nbsp;&nbsp;
+    </div>
+</div>
+<div *ngIf="verElejido">
+    <h3>El elegido es:</h3>
+    <img src="{{personajeElejido.imagen}}" height="300px">
+    <h3>{{personajeElejido.nombre}} {{personajeElejido.apellido}}</h3>
+</div>

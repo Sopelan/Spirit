@@ -18,9 +18,11 @@ import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 import { ChatComponent } from './chat/chat.component';
 import { PreguntadosComponent } from './preguntados/preguntados.component';
 import { HttpClientModule } from '@angular/common/http';
+import { QuienEsQuienComponent } from './quien-es-quien/quien-es-quien.component';
 @NgModule({
   declarations: [
     AppComponent,
+    //QuienEsQuienComponent,
     //LoginComponent,
     /*HomeComponent,
     QuienSoyComponent,
@@ -28,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     //RegistroComponent,
     MayorMenorComponent,
     AhorcadoComponent,
-    //PaginaComponent,
+    PaginaComponent,
     ChatComponent,
     PreguntadosComponent,*/
     

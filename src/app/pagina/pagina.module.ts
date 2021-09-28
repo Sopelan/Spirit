@@ -10,26 +10,29 @@ import { MayorMenorComponent } from '../mayor-menor/mayor-menor.component';
 import { AhorcadoComponent } from '../ahorcado/ahorcado.component';
 import { ChatComponent } from '../chat/chat.component';
 import { PreguntadosComponent } from '../preguntados/preguntados.component';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuienEsQuienComponent } from '../quien-es-quien/quien-es-quien.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     PaginaComponent,
     HomeComponent,
     QuienSoyComponent,
-    ErrorComponent,
     //RegistroComponent,
     MayorMenorComponent,
     AhorcadoComponent,
     //PaginaComponent,
     ChatComponent,
     PreguntadosComponent,
+    QuienEsQuienComponent,
   ],
   imports: [
     CommonModule,
     PaginaRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ]
 })
 export class PaginaModule { }
