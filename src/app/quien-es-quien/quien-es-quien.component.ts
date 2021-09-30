@@ -9,7 +9,6 @@ interface Personaje
   colorPelo: string;
   colorOjos:string;
   anime:string;
-
   
 }
 @Component({
@@ -28,6 +27,33 @@ export class QuienEsQuienComponent implements OnInit {
   verComenzar:boolean;
   verElejido:boolean;
   alertas:string;
+  animesArray : any = [
+    "Go Toubun no Hanayome",
+     "Tokyo Ghoul",
+     "Oreigaru",
+    "Kanojo mo Kanojo",
+    "Higurashi no Naku Koro ni",
+     "Tokyo Revengers",
+    "DoctorStone",
+      "Shuffle",
+    "Elfen Lied",
+    "Kanojo Okarishimasu"
+]
+  generosArray : any ={
+    Femenino:"Femenino",
+    Masculino:"Masculino"
+  };
+  coloresArray : any = [
+    "Azul",
+    "Marron",
+    "Negro",
+    "Morado",
+    "Rosa",
+    "Blanco",
+    "Gris",
+    "Rojo",
+    "Naranja"
+  ];
   constructor() 
   {
     this.esto = false;
@@ -38,13 +64,16 @@ export class QuienEsQuienComponent implements OnInit {
   
   ngOnInit(): void 
   {
-    let personaje1 : Personaje = {nombre: "Ichika",apellido:"Nakano",genero:"Femenino",imagen:"assets/personajes/IchikaNakano.jpg",colorOjos: "Azul",colorPelo:"Rosa" ,anime:"Go Toubun no Hanayome"}
-    let personaje2 : Personaje = {nombre: "Ken",apellido:"Kaneki",genero:"Masculino",imagen:"assets/personajes/kanekiken.jpg",colorOjos: "Marron",colorPelo:"Blanco", anime:"Tokyo ghoul"}
-    let personaje3 : Personaje = {nombre: "Kihigaya",apellido:"Hachiman",genero:"Masculino",imagen:"assets/personajes/KihigayaHachiman.jpg",colorOjos: "Negro",colorPelo:"Negro", anime:"Yahari ore no seishun love Come wa Machigatteiru"}
-    let personaje4 : Personaje = {nombre: "Naoya",apellido:"Mukai",genero:"Masculino",imagen:"assets/personajes/NaoyaMukai.jpg",colorOjos: "Gris",colorPelo:"Marron", anime:"Kanojo mo Kanojo"}
-    let personaje5 : Personaje = {nombre: "Touka",apellido:"Kirishima",genero:"Femenino",imagen:"assets/personajes/ToukaKirishima.jpg",colorOjos: "Morado",colorPelo:"Morado", anime:"Tokyo ghoul"}
-    let personaje6 : Personaje = {nombre: "Yui",apellido:"Yuigahama",genero:"Femenino",imagen:"assets/personajes/YuiYuigahama.jpg",colorOjos: "Rojo",colorPelo:"Rosa", anime:"Yahari ore no seishun love Come wa Machigatteiru"}
-    this.personajes.push(personaje1,personaje2,personaje3,personaje4,personaje5,personaje6);
+    let personaje1 : Personaje = {nombre: "Ichika",apellido:"Nakano",genero:this.generosArray.Femenino,imagen:"assets/personajes/IchikaNakano.jpg",colorOjos: this.coloresArray[0],colorPelo:this.coloresArray[4] ,anime:this.animesArray[0]}
+    let personaje2 : Personaje = {nombre: "Ken",apellido:"Kaneki",genero:this.generosArray.Masculino,imagen:"assets/personajes/kanekiken.jpg",colorOjos: this.coloresArray[1],colorPelo:this.coloresArray[5], anime:this.animesArray[1]}
+    let personaje3 : Personaje = {nombre: "Kihigaya",apellido:"Hachiman",genero:this.generosArray.Masculino,imagen:"assets/personajes/KihigayaHachiman.jpg",colorOjos: this.coloresArray[2],colorPelo:this.coloresArray[2], anime:this.animesArray[2]}
+    let personaje4 : Personaje = {nombre: "Naoya",apellido:"Mukai",genero:this.generosArray.Masculino,imagen:"assets/personajes/NaoyaMukai.jpg",colorOjos: this.coloresArray[6],colorPelo:this.coloresArray[1], anime:this.animesArray[3]}
+    let personaje5 : Personaje = {nombre: "Touka",apellido:"Kirishima",genero:this.generosArray.Femenino,imagen:"assets/personajes/ToukaKirishima.jpg",colorOjos: this.coloresArray[3],colorPelo:this.coloresArray[3], anime:this.animesArray[1]}
+    let personaje6 : Personaje = {nombre: "Yui",apellido:"Yuigahama",genero:this.generosArray.Femenino,imagen:"assets/personajes/YuiYuigahama.jpg",colorOjos: this.coloresArray[7],colorPelo:this.coloresArray[4], anime:this.animesArray[2]}
+    let personaje7 : Personaje = {nombre:"Rena",apellido:"Ryuugu",genero:this.generosArray.Femenino,imagen:"assets/personajes/RenaRyuuguuNuevo.jpg",colorOjos:this.coloresArray[0],colorPelo:this.coloresArray[8],anime:this.animesArray[4]};
+    this.personajes.push(personaje1,personaje2,personaje3,personaje4,personaje5,personaje6,personaje7);
+    console.log(this.personajes);
+    this.personajes = this.personajes.sort()
     this.personajeElejido = this.personajes[Number.parseInt((Math.random()*(this.personajes.length-1)).toFixed(0))];
     console.log("Se elijió ",this.personajeElejido);
     console.log(this.personajes);
