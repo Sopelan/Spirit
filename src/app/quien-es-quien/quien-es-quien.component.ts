@@ -1,4 +1,5 @@
 import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 interface Personaje
@@ -72,23 +73,33 @@ export class QuienEsQuienComponent implements OnInit {
     
     //let personaje : Personaje = {nombre:"",apellido:"",genero:this.generosArray.Femenino,imagen:"assets/personajes/.jpg",colorOjos:this.coloresArray[3],colorPelo:this.coloresArray[3],anime:this.animesArray[4]}
     //this.colecciones.add(personaje);
-    this.alertas = "<h1 class='text-danger'>Cargando!!!</h1>";
-    this.recuperarPersonajes();
-    this.preguntasRestantes = 5;
-    this.ver= "preguntas restantes: "+this.preguntasRestantes;
+    if(localStorage.getItem("logueado") == "true")
+    {
+      this.alertas = "<h1 class='text-danger'>Cargando!!!</h1>";
+      this.recuperarPersonajes();
+      this.preguntasRestantes = 5;
+      this.ver= "preguntas restantes: "+this.preguntasRestantes;
+    }
+    else
+      this.alertas = "<h1 class='text-danger'>Tenes que iniciar session!!!</h1>";
   }
   ImagenClick(item:any)
   {
-    if(this.personajeElejido == item)
-      this.Ganaste();
-    else
+    if(localStorage.getItem("logueado") == "true")
     {
-      this.preguntasRestantes--;
-      item.imagen = "";
-      this.alertas ="<h3 class='text-danger'>Equivocado!!</h3>";
-      this.SiPerdiste();
+      if(this.personajeElejido == item)
+        this.Ganaste();
+      else
+      {
+        this.preguntasRestantes--;
+        item.imagen = "";
+        this.alertas ="<h3 class='text-danger'>Equivocado!!</h3>";
+        this.SiPerdiste();
+      }
+      this.ver= "preguntas restantes: "+this.preguntasRestantes;
     }
-    this.ver= "preguntas restantes: "+this.preguntasRestantes;
+    else
+      this.alertas = "<h1 class='text-danger'>Tenes que iniciar session!!!</h1>";
   }
   recuperarPersonajes()
   {
@@ -112,7 +123,9 @@ export class QuienEsQuienComponent implements OnInit {
   }
   boton(opcion:string,boton:string)
   {
-    let op = "";  
+    if(localStorage.getItem("logueado") == "true")
+    {
+      let op = "";  
     if(boton == "Genero")
       {
         switch(opcion)
@@ -248,7 +261,13 @@ export class QuienEsQuienComponent implements OnInit {
       this.preguntasRestantes--;
       this.SiPerdiste();
       this.ver= "preguntas restantes: "+this.preguntasRestantes;
-
+    }
+    else
+    {
+      this.alertas = "<h1 class='text-danger'>Tenes que iniciar session!!!</h1>";
+      this.verComenzar = false;
+    }
+      
   }
   Ganaste()
   {
@@ -258,9 +277,14 @@ export class QuienEsQuienComponent implements OnInit {
   }
   Empezar()
   {
-    this.esto = true;
-    this.verComenzar = false;
-    console.log("Se elijió ",this.personajeElejido);
+    if(localStorage.getItem("logueado") == "true")
+    {
+      this.esto = true;
+      this.verComenzar = false;
+      console.log("Se elijió ",this.personajeElejido);
+    }
+    else
+      this.alertas = "<h1 class='text-danger'>Tenes que iniciar session!!!</h1>";
   }
   SiPerdiste()
   {
