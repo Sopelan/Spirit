@@ -58,11 +58,11 @@ export class MayorMenorComponent implements OnInit {
     do{
       var num = parseInt((Math.random() * (this.fotos.length -1)).toFixed(0));;
       this.urlImg1 = this.fotos[num][2];
-      this.canImg1 = this.fotos[num][2];
+      this.canImg1 = this.fotos[num][1];
       this.img1 = '<img src="'+this.urlImg1+'" height="360">'
       var num2 = parseInt((Math.random() * (this.fotos.length -1)).toFixed(0));
       this.urlImg2 = this.fotos[num2][2];
-      this.canImg2 = this.fotos[num2][2];
+      this.canImg2 = this.fotos[num2][1];
     }
     while(num == num2);
   }
