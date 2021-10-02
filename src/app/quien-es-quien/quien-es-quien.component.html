@@ -8,7 +8,7 @@
 <h1 *ngIf="esto" [innerHtml]="ver"></h1>
 <div [innerHtml]="alertas"></div>
 <div *ngIf="esto" class="grid" > 
-    <img *ngFor="let item of personajes" src="{{item.imagen}}" (click)="ImagenClick(item);" height="150px"><!-- cada uno de los ítems del grid -->
+    <img *ngFor="let item of personajes" src="{{item.imagen}}" (click)="ImagenClick(item);" height="250px"><!-- cada uno de los ítems del grid -->
 </div>
 <br/>
 <div *ngIf="esto">
